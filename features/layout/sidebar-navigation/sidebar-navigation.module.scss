@@ -138,8 +138,8 @@
   @media (min-width: breakpoint.$desktop) {
     display: flex;
   }
-}
 
-.collapseMenuItem.rotateIcon {
-  transform: rotate(180deg);
+  &.rotateIcon {
+    transform: rotate(180deg);
+  }
 }
