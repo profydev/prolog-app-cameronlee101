@@ -79,11 +79,15 @@ export function SidebarNavigation() {
             ))}
           </ul>
           <ul className={styles.list}>
+            {/* note: no way to cypress test mail app opening without redoing this element so that it has an href attribute or something */}
             <MenuItemButton
               text="Support"
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
-              onClick={() => alert("Support")}
+              onClick={() => {
+                window.location.href =
+                  "mailto:support@prolog-app.com?subject=Support Request:";
+              }}
             />
             <MenuItemButton
               text="Collapse"
