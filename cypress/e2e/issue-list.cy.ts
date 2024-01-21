@@ -82,5 +82,20 @@ describe("Issue List", () => {
       cy.wait(1500);
       cy.contains("Page 2 of 3");
     });
+
+    it("number of events and users are correctly displays", () => {
+      cy.get("tbody tr:first").contains(mockIssues1.items[0].numEvents);
+      cy.get("tbody tr:first").contains(mockIssues1.items[0].numUsers);
+
+      // navigate to next page and check events and users number displays correctly
+      cy.get("@next-button").click();
+      cy.get("tbody tr:first").contains(mockIssues2.items[0].numEvents);
+      cy.get("tbody tr:first").contains(mockIssues2.items[0].numUsers);
+
+      // navigate to last page and check events and users number displays correctly
+      cy.get("@next-button").click();
+      cy.get("tbody tr:first").contains(mockIssues3.items[0].numEvents);
+      cy.get("tbody tr:first").contains(mockIssues3.items[0].numUsers);
+    });
   });
 });
