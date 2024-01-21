@@ -22,16 +22,17 @@ export function SidebarNavigation() {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(
-    window.innerWidth >= desktopBreakpoint,
-  );
+  const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= desktopBreakpoint);
+      if (window) {
+        setIsDesktop(window.innerWidth >= desktopBreakpoint);
+      }
     };
 
     window.addEventListener("resize", handleResize);
+    handleResize();
 
     // Clean up the event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
