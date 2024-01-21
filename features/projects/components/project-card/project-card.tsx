@@ -25,6 +25,16 @@ const statusColors = {
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, language, numIssues, numEvents24h, status } = project;
 
+  const convertStatus = (status: string) => {
+    if (status == "info") {
+      return ProjectStatus.stable;
+    } else if (status == ProjectStatus.warning) {
+      return ProjectStatus.warning;
+    } else {
+      return ProjectStatus.critical;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.topContainer}>
@@ -50,7 +60,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className={styles.issuesNumber}>{numEvents24h}</div>
           </div>
           <div className={styles.status}>
-            <Badge color={statusColors[status]}>{capitalize(status)}</Badge>
+            <Badge color={statusColors[convertStatus(status)]}>
+              {capitalize(convertStatus(status))}
+            </Badge>
           </div>
         </div>
       </div>
