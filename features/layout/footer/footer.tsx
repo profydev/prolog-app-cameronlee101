@@ -11,7 +11,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.version}>
         {"Version: " + packageJson.version || "Version unavailable"}
       </div>
@@ -26,6 +26,6 @@ export function Footer() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={"/icons/logo-small.svg"} alt="logo" />
       </div>
-    </div>
+    </footer>
   );
 }
