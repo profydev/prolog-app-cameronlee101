@@ -1,0 +1,38 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid color.$error-300;
+  border-radius: space.$s2;
+  padding: space.$s4;
+  background-color: color.$error-25;
+
+  .alertMessage {
+    display: flex;
+    gap: space.$s3;
+    align-items: center;
+    height: fit-content;
+  }
+
+  .tryAgainButton {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    white-space: nowrap;
+    height: 100%;
+  }
+
+  p {
+    color: color.$error-700;
+    font: font.$text-sm-medium;
+    margin: 0;
+  }
+
+  .icon {
+    width: space.$s5;
+    height: space.$s5;
+  }
+}
