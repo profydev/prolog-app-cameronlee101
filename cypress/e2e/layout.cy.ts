@@ -21,27 +21,22 @@ describe("Layout Elements", () => {
       });
 
       it("displays 4 links", () => {
+        const footerLinks = [
+          { name: "Docs", href: "/dashboard#" },
+          { name: "API", href: "/dashboard#" },
+          { name: "Help", href: "/dashboard#" },
+          { name: "Community", href: "/dashboard#" },
+        ];
+
         cy.get("footer").find("a").should("have.length", 4);
 
         cy.get("footer")
-          .contains("Docs")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("API")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("Help")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("Community")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
+          .find("a")
+          .each(($el, index) => {
+            cy.wrap($el).contains(footerLinks[index].name);
+            cy.wrap($el).should("have.attr", "href", footerLinks[index].href);
+            cy.wrap($el).should("be.visible");
+          });
       });
     });
 
@@ -60,27 +55,22 @@ describe("Layout Elements", () => {
       });
 
       it("displays 4 links", () => {
+        const footerLinks = [
+          { name: "Docs", href: "/dashboard#" },
+          { name: "API", href: "/dashboard#" },
+          { name: "Help", href: "/dashboard#" },
+          { name: "Community", href: "/dashboard#" },
+        ];
+
         cy.get("footer").find("a").should("have.length", 4);
 
         cy.get("footer")
-          .contains("Docs")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("API")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("Help")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
-
-        cy.get("footer")
-          .contains("Community")
-          .should("have.attr", "href", "/dashboard#")
-          .should("be.visible");
+          .find("a")
+          .each(($el, index) => {
+            cy.wrap($el).contains(footerLinks[index].name);
+            cy.wrap($el).should("have.attr", "href", footerLinks[index].href);
+            cy.wrap($el).should("be.visible");
+          });
       });
     });
   });
