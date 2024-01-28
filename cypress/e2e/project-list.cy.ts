@@ -49,7 +49,7 @@ describe("Project List", () => {
       cy.intercept("GET", "https://prolog-api.profy.dev/project", (req) => {
         req.reply({
           fixture: "projects.json",
-          delay: 1000, // Optional delay if you want to simulate a delay
+          delay: 1000,
         });
       }).as("delayedGetProjects");
 
@@ -63,11 +63,39 @@ describe("Project List", () => {
       });
 
       it("displays loading circle when projects haven't loaded in yet", () => {
-        cy.get('[data-test="loading-indicator"').should("be.visible");
+        cy.get('[data-test="loading-indicator"]').should("be.visible");
 
-        cy.wait(1500);
+        cy.wait("@delayedGetProjects");
 
         cy.get("[data-test='loading-indicator']").should("not.exist");
+      });
+    });
+  });
+
+  context("error API response", () => {
+    beforeEach(() => {
+      // setup request mock
+      cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+        forceNetworkError: true,
+      }).as("getProjectsFailure");
+
+      // open projects page
+      cy.visit("http://localhost:3000/dashboard");
+    });
+
+    context("desktop resolution", () => {
+      beforeEach(() => {
+        cy.viewport(1025, 900);
+      });
+
+      it("renders an error message after some time", () => {
+        cy.get('[data-test="loading-indicator"]').should("be.visible");
+
+        cy.contains(/there was a problem while loading the project data/i, {
+          timeout: 15000,
+        }).should("exist");
+
+        cy.contains(/try again/i).should("exist");
       });
     });
   });
