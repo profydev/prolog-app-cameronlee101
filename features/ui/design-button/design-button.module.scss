@@ -1,0 +1,181 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+@use "@styles/shadow";
+
+.button {
+  cursor: pointer;
+
+  /* remove default button styles */
+  border: none;
+  border-radius: space.$s2;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+
+  /* center contents */
+  display: flex;
+  align-items: center;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &.sm {
+    padding: space.$s2 14px;
+    font: font.$text-sm-medium;
+  }
+
+  &.md {
+    padding: 10px space.$s4;
+    font: font.$text-sm-medium;
+  }
+
+  &.lg {
+    padding: 10px 18px;
+    font: font.$text-md-medium;
+  }
+
+  &.xl {
+    padding: space.$s3 space.$s5;
+    font: font.$text-md-medium;
+  }
+
+  &.primary {
+    background: color.$primary-600;
+    color: white;
+    border: 1px solid color.$primary-600;
+    box-shadow: shadow.$shadow-xs;
+
+    &:hover {
+      background: color.$primary-700;
+    }
+
+    &:focus {
+      outline: space.$s1 solid color.$primary-100;
+      box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
+    }
+
+    &:disabled {
+      background: color.$primary-200;
+      border: 1px solid color.$primary-200;
+    }
+  }
+
+  &.secondary {
+    background: color.$primary-50;
+    color: color.$primary-700;
+    border: 1px solid color.$primary-50;
+    box-shadow: shadow.$shadow-xs;
+
+    &:hover {
+      background: color.$primary-100;
+    }
+
+    &:focus {
+      outline: space.$s1 solid color.$primary-100;
+      box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
+    }
+
+    &:disabled {
+      background: color.$primary-25;
+      color: color.$primary-300;
+      border: 1px solid color.$primary-25;
+    }
+  }
+
+  &.gray {
+    background: white;
+    color: color.$gray-700;
+    border: 1px solid color.$gray-300;
+    box-shadow: shadow.$shadow-xs;
+
+    &:hover {
+      background: color.$gray-50;
+    }
+
+    &:focus {
+      outline: space.$s1 solid color.$gray-300;
+      box-shadow: shadow.$shadow-xs-focused-4px-gray-100;
+    }
+
+    &:disabled {
+      color: color.$gray-300;
+      border: 1px solid color.$gray-200;
+    }
+  }
+
+  &.empty {
+    color: color.$primary-700;
+
+    &:hover {
+      background: color.$primary-50;
+    }
+
+    &:focus {
+      background: none;
+    }
+
+    &:disabled {
+      color: color.$gray-300;
+    }
+  }
+
+  &.emptyGrey {
+    color: color.$gray-500;
+
+    &:hover {
+      background: color.$gray-50;
+    }
+
+    &:focus {
+      background: none;
+    }
+
+    &:disabled {
+      color: color.$gray-300;
+    }
+  }
+
+  &.error {
+    background: color.$error-600;
+    color: white;
+    border: 1px solid color.$error-600;
+    box-shadow: shadow.$shadow-xs;
+
+    &:hover {
+      background: color.$error-700;
+    }
+
+    &:focus {
+      outline: space.$s1 solid color.$error-100;
+      box-shadow: shadow.$shadow-xs-focused-4px-error-100;
+    }
+
+    &:disabled {
+      background: color.$error-200;
+      border: 1px solid color.$error-200;
+    }
+  }
+
+  &.emptyError {
+    color: color.$error-700;
+
+    &:hover {
+      background: color.$error-50;
+    }
+
+    &:focus {
+      background: none;
+    }
+
+    &:disabled {
+      color: color.$error-300;
+    }
+  }
+}
