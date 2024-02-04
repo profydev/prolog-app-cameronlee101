@@ -69,7 +69,7 @@ export function DesignCheckbox({
 
   return (
     <div
-      className={`${styles[size]} ${styles[checkState]} ${
+      className={`${styles.container} ${styles[size]} ${styles[checkState]} ${
         disabled ? styles.disabled : ""
       }`}
     >
