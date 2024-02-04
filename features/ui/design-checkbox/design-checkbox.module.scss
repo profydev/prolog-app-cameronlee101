@@ -121,7 +121,7 @@ div {
 
     &:focus {
       + .label::before {
-        box-shadow: shadow.$shadow-focus-ring-4px-primary-100;
+        box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
       }
     }
   }
