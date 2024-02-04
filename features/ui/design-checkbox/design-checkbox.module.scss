@@ -1,0 +1,75 @@
+@use "@styles/space";
+@use "@styles/color";
+@use "@styles/font";
+
+div {
+  display: flex;
+  align-items: center;
+
+  .checkbox {
+    display: none;
+  }
+
+  .label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+
+  .label::before {
+    content: "";
+    text-align: center;
+    display: inline-block;
+    appearance: none;
+    border: 1px solid color.$gray-300;
+    background-color: white;
+    position: relative;
+  }
+
+  &.sm {
+    .label::before {
+      height: 14px;
+      width: 14px;
+      border-radius: space.$s1;
+    }
+
+    .label {
+      font: font.$text-sm-medium;
+      gap: space.$s2;
+    }
+  }
+
+  &.md {
+    .label::before {
+      height: 18px;
+      width: 18px;
+      border-radius: 6px;
+    }
+
+    .label {
+      font: font.$text-md-medium;
+      gap: space.$s3;
+    }
+  }
+
+  &.checked {
+    .label::before {
+      content: url("/icons/check.svg");
+      line-height: 100%;
+      background-color: color.$primary-50;
+      color: color.$primary-600;
+      border-color: color.$primary-600;
+    }
+  }
+
+  &.indeterminate {
+    .label::before {
+      content: url("/icons/minus.svg");
+      line-height: 60%;
+      background-color: color.$primary-50;
+      color: color.$primary-600;
+      border-color: color.$primary-600;
+    }
+  }
+}
