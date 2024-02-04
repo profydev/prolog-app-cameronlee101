@@ -7,10 +7,6 @@ div {
   display: flex;
   align-items: center;
 
-  .checkbox {
-    display: none;
-  }
-
   .label {
     cursor: pointer;
     position: relative;
@@ -26,10 +22,6 @@ div {
       border: 1px solid color.$gray-300;
       background-color: white;
       position: relative;
-    }
-
-    &:focus {
-      box-shadow: shadow.$shadow-focus-ring-4px-primary-100;
     }
   }
 
@@ -96,6 +88,17 @@ div {
 
     &.indeterminate .label::before {
       content: url("/icons/minus-gray.svg");
+    }
+  }
+
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+
+    &:focus {
+      + .label::before {
+        box-shadow: shadow.$shadow-focus-ring-4px-primary-100;
+      }
     }
   }
 

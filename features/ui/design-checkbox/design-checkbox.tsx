@@ -50,15 +50,15 @@ export function DesignCheckbox({
   };
 
   useEffect(() => {
-    if (state == CheckboxState.checked) {
+    if (state === CheckboxState.checked) {
       setChecked(true);
       setIndeterminate(false);
       setCheckState(CheckboxState.checked);
-    } else if (state == CheckboxState.unchecked) {
+    } else if (state === CheckboxState.unchecked) {
       setChecked(false);
       setIndeterminate(false);
       setCheckState(CheckboxState.unchecked);
-    } else if (state == CheckboxState.indeterminate) {
+    } else if (state === CheckboxState.indeterminate) {
       setChecked(false);
       setIndeterminate(true);
       setCheckState(CheckboxState.indeterminate);
@@ -72,7 +72,6 @@ export function DesignCheckbox({
       className={`${styles[size]} ${styles[checkState]} ${
         disabled ? styles.disabled : ""
       }`}
-      onFocus={() => console.log("div focused")}
     >
       <input
         type="checkbox"
@@ -90,13 +89,7 @@ export function DesignCheckbox({
           }
         }}
       />
-      <label
-        onFocus={() => {
-          console.log("label focused");
-        }}
-        htmlFor="checkbox"
-        className={styles.label}
-      >
+      <label htmlFor="checkbox" className={styles.label}>
         {label}
       </label>
     </div>
