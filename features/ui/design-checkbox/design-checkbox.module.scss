@@ -51,43 +51,67 @@ div {
     }
   }
 
-  &.checked .label::before {
-    content: url("/icons/check.svg");
-    line-height: 100%;
-    background-color: color.$primary-50;
-    color: color.$primary-600;
-    border-color: color.$primary-600;
-  }
-
-  &.indeterminate .label::before {
-    content: url("/icons/minus.svg");
-    line-height: 60%;
-    background-color: color.$primary-50;
-    color: color.$primary-600;
-    border-color: color.$primary-600;
-  }
-
-  &.disabled {
-    .label {
-      cursor: auto;
-      color: color.$gray-300;
-
-      &:hover {
-        border-color: color.$gray-200;
-      }
-
-      &::before {
-        background-color: color.$gray-100;
-        border-color: color.$gray-200;
-      }
+  &.checked {
+    .label::before {
+      content: url("/icons/check.svg");
+      line-height: 100%;
+      background-color: color.$primary-50;
+      color: color.$primary-600;
+      border-color: color.$primary-600;
     }
+  }
 
-    &.checked .label::before {
+  &.indeterminate {
+    .label::before {
+      content: url("/icons/minus.svg");
+      line-height: 60%;
+      background-color: color.$primary-50;
+      color: color.$primary-600;
+      border-color: color.$primary-600;
+    }
+  }
+
+  &.unchecked {
+    .label:hover::before {
+      background-color: color.$primary-50;
+      color: color.$primary-600;
+      border-color: color.$primary-600;
+    }
+  }
+
+  &.disabled.checked .label {
+    cursor: auto;
+    color: color.$gray-300;
+
+    &::before {
       content: url("/icons/check-gray.svg");
+      background-color: color.$gray-100;
+      border-color: color.$gray-200;
+    }
+  }
+
+  &.disabled.indeterminate .label {
+    cursor: auto;
+    color: color.$gray-300;
+
+    &::before {
+      content: url("/icons/minus-gray.svg");
+      background-color: color.$gray-100;
+      border-color: color.$gray-200;
+    }
+  }
+
+  &.disabled.unchecked .label {
+    cursor: auto;
+    color: color.$gray-300;
+
+    &:hover {
+      border-color: color.$gray-200;
     }
 
-    &.indeterminate .label::before {
-      content: url("/icons/minus-gray.svg");
+    &::before {
+      background-color: color.$gray-100;
+      border-color: color.$gray-200;
     }
   }
 
@@ -99,14 +123,6 @@ div {
       + .label::before {
         box-shadow: shadow.$shadow-focus-ring-4px-primary-100;
       }
-    }
-  }
-
-  &.unchecked .label:hover {
-    &::before {
-      background-color: color.$primary-50;
-      color: color.$primary-600;
-      border-color: color.$primary-600;
     }
   }
 }
