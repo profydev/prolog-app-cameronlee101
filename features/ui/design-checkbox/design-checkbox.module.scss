@@ -1,6 +1,7 @@
 @use "@styles/space";
 @use "@styles/color";
 @use "@styles/font";
+@use "@styles/shadow";
 
 div {
   display: flex;
@@ -11,20 +12,25 @@ div {
   }
 
   .label {
+    cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
     align-self: center;
-  }
 
-  .label::before {
-    content: "";
-    text-align: center;
-    display: inline-block;
-    appearance: none;
-    border: 1px solid color.$gray-300;
-    background-color: white;
-    position: relative;
+    &::before {
+      content: "";
+      text-align: center;
+      display: inline-block;
+      appearance: none;
+      border: 1px solid color.$gray-300;
+      background-color: white;
+      position: relative;
+    }
+
+    &:focus {
+      box-shadow: shadow.$shadow-focus-ring-4px-primary-100;
+    }
   }
 
   &.sm {
@@ -53,20 +59,48 @@ div {
     }
   }
 
-  &.checked {
-    .label::before {
-      content: url("/icons/check.svg");
-      line-height: 100%;
-      background-color: color.$primary-50;
-      color: color.$primary-600;
-      border-color: color.$primary-600;
+  &.checked .label::before {
+    content: url("/icons/check.svg");
+    line-height: 100%;
+    background-color: color.$primary-50;
+    color: color.$primary-600;
+    border-color: color.$primary-600;
+  }
+
+  &.indeterminate .label::before {
+    content: url("/icons/minus.svg");
+    line-height: 60%;
+    background-color: color.$primary-50;
+    color: color.$primary-600;
+    border-color: color.$primary-600;
+  }
+
+  &.disabled {
+    .label {
+      cursor: auto;
+      color: color.$gray-300;
+
+      &:hover {
+        border-color: color.$gray-200;
+      }
+
+      &::before {
+        background-color: color.$gray-100;
+        border-color: color.$gray-200;
+      }
+    }
+
+    &.checked .label::before {
+      content: url("/icons/check-gray.svg");
+    }
+
+    &.indeterminate .label::before {
+      content: url("/icons/minus-gray.svg");
     }
   }
 
-  &.indeterminate {
-    .label::before {
-      content: url("/icons/minus.svg");
-      line-height: 60%;
+  &.unchecked .label:hover {
+    &::before {
       background-color: color.$primary-50;
       color: color.$primary-600;
       border-color: color.$primary-600;

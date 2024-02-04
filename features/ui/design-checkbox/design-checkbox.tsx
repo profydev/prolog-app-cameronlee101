@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./design-checkbox.module.scss";
-import classNames from "classnames";
 
 export enum CheckboxSize {
   sm = "sm",
@@ -17,12 +16,14 @@ type CheckboxProps = {
   size?: CheckboxSize;
   state?: CheckboxState;
   label?: string;
+  disabled?: boolean;
 };
 
 export function DesignCheckbox({
   size = CheckboxSize.sm,
   state = CheckboxState.unchecked,
   label = "",
+  disabled = false,
 }: CheckboxProps) {
   const [checked, setChecked] = useState<boolean>(
     state === CheckboxState.checked,
@@ -67,20 +68,35 @@ export function DesignCheckbox({
   }, [state]);
 
   return (
-    <div className={classNames(styles[size], styles[checkState])}>
+    <div
+      className={`${styles[size]} ${styles[checkState]} ${
+        disabled ? styles.disabled : ""
+      }`}
+      onFocus={() => console.log("div focused")}
+    >
       <input
         type="checkbox"
         className={styles.checkbox}
         id="checkbox"
         checked={checked}
+        disabled={disabled}
         onChange={handleChange}
+        onFocus={() => {
+          console.log("input focused");
+        }}
         ref={(el) => {
           if (el) {
             el.indeterminate = indeterminate;
           }
         }}
       />
-      <label htmlFor="checkbox" className={styles.label}>
+      <label
+        onFocus={() => {
+          console.log("label focused");
+        }}
+        htmlFor="checkbox"
+        className={styles.label}
+      >
         {label}
       </label>
     </div>

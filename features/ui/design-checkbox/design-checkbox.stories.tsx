@@ -10,9 +10,19 @@ export default {
   },
 } as Meta<typeof DesignCheckbox>;
 
-const Template: StoryFn<typeof DesignCheckbox> = ({ size, state, label }) => (
+const Template: StoryFn<typeof DesignCheckbox> = ({
+  size,
+  state,
+  label,
+  disabled,
+}) => (
   <div style={{ padding: 10 }}>
-    <DesignCheckbox size={size} state={state} label={label} />
+    <DesignCheckbox
+      size={size}
+      state={state}
+      label={label}
+      disabled={disabled}
+    />
   </div>
 );
 
@@ -21,6 +31,7 @@ Default.args = {
   size: CheckboxSize.sm,
   state: CheckboxState.unchecked,
   label: "Label",
+  disabled: false,
 };
 Default.parameters = {
   viewMode: "docs",
