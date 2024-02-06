@@ -2,3 +2,28 @@
 @use "@styles/color";
 @use "@styles/font";
 @use "@styles/shadow";
+
+.select {
+  padding: 10px 14px;
+  border-radius: space.$s2;
+  border: 1px solid color.$gray-300;
+  box-shadow: shadow.$shadow-xs;
+  min-width: space.$s80;
+
+  &:focus {
+    box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
+  }
+
+  &:disabled {
+    background-color: color.$gray-50;
+    color: color.$gray-500;
+  }
+
+  &:required:invalid {
+    color: color.$gray-500;
+  }
+}
+
+.option {
+  color: color.$gray-900;
+}
