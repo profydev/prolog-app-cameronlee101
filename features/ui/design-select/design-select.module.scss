@@ -3,27 +3,62 @@
 @use "@styles/font";
 @use "@styles/shadow";
 
-.select {
+.container {
+  min-width: space.$s80;
+  width: fit-content;
+}
+
+.listboxButton {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  width: 100%;
   padding: 10px 14px;
   border-radius: space.$s2;
   border: 1px solid color.$gray-300;
+  background-color: white;
   box-shadow: shadow.$shadow-xs;
-  min-width: space.$s80;
 
-  &:focus {
+  &[aria-expanded="true"] {
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:focus:not(.disabled) {
+    border-color: color.$primary-300;
     box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
   }
 
-  &:disabled {
+  &.disabled {
     background-color: color.$gray-50;
     color: color.$gray-500;
   }
 
-  &:required:invalid {
+  &.placeholderSelected {
     color: color.$gray-500;
   }
 }
 
-.option {
+.listboxOptionsArea {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border-radius: space.$s2;
+  box-shadow: shadow.$shadow-lg;
+}
+
+.listboxOption {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
   color: color.$gray-900;
+  width: fill;
+  list-style-type: none;
+
+  &.selectedOption {
+    background-color: color.$primary-25;
+    justify-content: space-between;
+  }
 }

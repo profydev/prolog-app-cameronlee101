@@ -10,6 +10,7 @@
     "lint:styles": "stylelint  --ignore-path .gitignore \"**/*.scss\"",
     "check:types": "tsc --noEmit",
     "prettier": "prettier  --ignore-path .gitignore --check .",
+    "format": "prettier  --ignore-path .gitignore --write .",
     "cypress": "cypress open",
     "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.8",
+    "@headlessui/react": "^1.7.18",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.4.0",
