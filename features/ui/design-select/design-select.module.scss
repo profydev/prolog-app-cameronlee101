@@ -26,12 +26,12 @@
     }
   }
 
-  &:focus:not(.disabled) {
+  &:focus:not([aria-disabled="true"]) {
     border-color: color.$primary-300;
     box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
   }
 
-  &.disabled {
+  &[aria-disabled="true"] {
     background-color: color.$gray-50;
     color: color.$gray-500;
   }

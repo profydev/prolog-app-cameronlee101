@@ -26,7 +26,6 @@ export function DesignSelect({
         <Listbox.Button
           className={classNames(
             styles.listboxButton,
-            disabled ? styles.disabled : "",
             selectedOption == placeholder ? styles.placeholderSelected : "",
           )}
           aria-disabled={disabled}
