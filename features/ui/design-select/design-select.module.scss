@@ -21,7 +21,7 @@
   box-shadow: shadow.$shadow-xs;
 
   &[aria-expanded="true"] {
-    img {
+    .chevron {
       transform: rotate(180deg);
     }
   }
@@ -38,6 +38,16 @@
 
   &.placeholderSelected {
     color: color.$gray-500;
+  }
+
+  .listboxButtonText {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .icon {
+    padding-right: 14px;
   }
 }
 

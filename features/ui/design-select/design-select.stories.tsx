@@ -14,12 +14,14 @@ const Template: StoryFn<typeof DesignSelect> = ({
   placeholder,
   options,
   disabled,
+  iconSrc,
 }) => (
   <div style={{ padding: 10 }}>
     <DesignSelect
       placeholder={placeholder}
       options={options}
       disabled={disabled}
+      iconSrc={iconSrc}
     />
   </div>
 );

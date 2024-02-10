@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import styles from "./design-select.module.scss";
 import { Listbox } from "@headlessui/react";
 import classNames from "classnames";
+import Image from "next/image";
+import chevron from "@icons/chevron.svg";
 
 type DesignSelectProps = {
   placeholder?: string;
   options?: string[];
   disabled?: boolean;
+  iconSrc?: string;
 };
 
 export function DesignSelect({
   placeholder = "Select an option",
   options = ["Option 1", "Option 2", "Option 3"],
   disabled = false,
+  iconSrc,
 }: DesignSelectProps) {
   if (options.includes(placeholder)) {
     throw new Error("Placeholder cannot be the same as any of the options.");
@@ -30,9 +34,19 @@ export function DesignSelect({
           )}
           aria-disabled={disabled}
         >
-          {selectedOption}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/chevron.svg" />
+          <div className={styles.listboxButtonText}>
+            {iconSrc && (
+              <Image
+                src={iconSrc}
+                alt="Icon"
+                className={styles.icon}
+                width={20}
+                height={20}
+              />
+            )}
+            {selectedOption}
+          </div>
+          <Image src={chevron} alt={"chevron"} className={styles.chevron} />
         </Listbox.Button>
         <Listbox.Options className={styles.listboxOptionsArea}>
           {options.map((option, index) => (
