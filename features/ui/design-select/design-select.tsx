@@ -5,6 +5,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import chevron from "@icons/chevron.svg";
 import check from "@icons/check.svg";
+import { IconWithText } from "./icon-with-text";
 
 type DesignSelectProps = {
   label?: string;
@@ -55,18 +56,7 @@ export function DesignSelect({
               setOptionsListed(!optionsListed);
             }}
           >
-            <div>
-              {iconSrc && (
-                <Image
-                  src={iconSrc}
-                  alt="Icon"
-                  className={styles.icon}
-                  width={20}
-                  height={20}
-                />
-              )}
-              {selectedOption}
-            </div>
+            <IconWithText text={selectedOption} iconSrc={iconSrc} />
             <Image src={chevron} alt={"chevron"} className={styles.chevron} />
           </Listbox.Button>
           {!optionsListed && hint && (!error || disabled) && (
@@ -93,18 +83,7 @@ export function DesignSelect({
                       selected ? styles.selectedOption : "",
                     )}
                   >
-                    <div>
-                      {iconSrc && (
-                        <Image
-                          src={iconSrc}
-                          alt="Icon"
-                          className={styles.icon}
-                          width={20}
-                          height={20}
-                        />
-                      )}
-                      {option}
-                    </div>
+                    <IconWithText text={option} iconSrc={iconSrc} />
                     {selected && <Image src={check} alt={"Checkmark"} />}
                   </li>
                 )}

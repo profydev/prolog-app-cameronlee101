@@ -8,12 +8,6 @@
   width: fit-content;
 }
 
-.icon {
-  padding-right: 14px;
-  color: color.$gray-500;
-  fill: color.$gray-500;
-}
-
 .listboxButtonArea {
   .label {
     color: color.$gray-700;
@@ -51,12 +45,6 @@
 
     &.placeholderSelected {
       color: color.$gray-500;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      text-align: center;
     }
   }
 
@@ -102,12 +90,6 @@
     &.selectedOption {
       background-color: color.$primary-25;
       justify-content: space-between;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      text-align: center;
     }
   }
 }
