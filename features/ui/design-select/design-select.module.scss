@@ -1,0 +1,95 @@
+@use "@styles/space";
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/shadow";
+
+.container {
+  min-width: space.$s80;
+  width: fit-content;
+}
+
+.listboxButtonArea {
+  .label {
+    color: color.$gray-700;
+    font: font.$text-sm-medium;
+    margin: 0 0 space.$s1 0;
+  }
+
+  .listboxButton {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: space.$s2;
+    border: 1px solid color.$gray-300;
+    background-color: white;
+    box-shadow: shadow.$shadow-xs;
+
+    &[aria-expanded="true"] {
+      .chevron {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:focus:not([aria-disabled="true"]) {
+      border-color: color.$primary-300;
+      box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
+    }
+
+    &[aria-disabled="true"] {
+      background-color: color.$gray-50;
+      color: color.$gray-500;
+    }
+
+    &.placeholderSelected {
+      color: color.$gray-500;
+    }
+  }
+
+  &.error:not([aria-disabled="true"]) {
+    .listboxButton {
+      border-color: color.$error-300;
+
+      &:focus {
+        box-shadow: shadow.$shadow-xs-focused-4px-error-100;
+      }
+    }
+  }
+
+  .hintText {
+    color: color.$gray-500;
+    font: font.$text-sm-regular;
+    margin: space.$s1 0 0 0;
+  }
+
+  .errorText {
+    color: color.$error-500;
+    font: font.$text-sm-regular;
+    margin: space.$s1 0 0 0;
+  }
+}
+
+.listboxOptionsArea {
+  padding: 0;
+  margin: space.$s2 0 0 0;
+  background-color: white;
+  border-radius: space.$s2;
+  box-shadow: shadow.$shadow-lg;
+
+  .listboxOption {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px 14px;
+    color: color.$gray-900;
+    width: fill;
+    list-style-type: none;
+
+    &.selectedOption {
+      background-color: color.$primary-25;
+      justify-content: space-between;
+    }
+  }
+}

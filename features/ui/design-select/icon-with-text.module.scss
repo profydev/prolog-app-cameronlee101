@@ -1,0 +1,13 @@
+@use "@styles/color";
+
+.container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  .icon {
+    padding-right: 14px;
+    color: color.$gray-500;
+    fill: color.$gray-500;
+  }
+}
