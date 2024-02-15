@@ -5,3 +5,4 @@ export * from "./error-alert";
 export * from "./design-button";
 export * from "./design-checkbox";
 export * from "./design-select";
+export * from "./design-input";

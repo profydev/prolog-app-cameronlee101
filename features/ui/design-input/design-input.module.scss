@@ -1,0 +1,34 @@
+@use "@styles/space";
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/shadow";
+
+.container {
+  min-width: space.$s80;
+  width: fit-content;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: space.$s2;
+  border: 1px solid color.$gray-300;
+  background-color: white;
+  box-shadow: shadow.$shadow-xs;
+
+  &:focus:not([disabled="true"]) {
+    outline: none;
+    border-color: color.$primary-300;
+    box-shadow: shadow.$shadow-xs-focused-4px-primary-100;
+  }
+
+  // TODO: fix background color not changing when switching between disabled and not disabled
+  &[disabled="true"] {
+    background-color: color.$gray-50;
+    color: color.$gray-500;
+  }
+}
