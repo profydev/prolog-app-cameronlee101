@@ -17,33 +17,50 @@
   -moz-osx-font-smoothing: inherit;
   appearance: none;
 
-  /* center contents */
-  display: flex;
-  align-items: center;
-
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
 
+  /* content styles */
+  display: flex;
+  align-items: center;
+  gap: space.$s2;
+
   &.sm {
     padding: space.$s2 14px;
     font: font.$text-sm-medium;
+
+    &.iconOnly {
+      padding: space.$s2;
+    }
   }
 
   &.md {
     padding: 10px space.$s4;
     font: font.$text-sm-medium;
+
+    &.iconOnly {
+      padding: 10px;
+    }
   }
 
   &.lg {
     padding: 10px 18px;
     font: font.$text-md-medium;
+
+    &.iconOnly {
+      padding: 10px;
+    }
   }
 
   &.xl {
     padding: space.$s3 space.$s5;
     font: font.$text-md-medium;
+
+    &.iconOnly {
+      padding: space.$s3;
+    }
   }
 
   &.primary {

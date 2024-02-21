@@ -80,9 +80,6 @@ export function DesignCheckbox({
         checked={checked}
         disabled={disabled}
         onChange={handleChange}
-        onFocus={() => {
-          console.log("input focused");
-        }}
         ref={(el) => {
           if (el) {
             el.indeterminate = indeterminate;
