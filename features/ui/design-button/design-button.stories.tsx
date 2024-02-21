@@ -11,24 +11,33 @@ export default {
 } as Meta<typeof DesignButton>;
 
 const Template: StoryFn<typeof DesignButton> = ({
+  label,
   size,
   color,
-  children,
   disabled,
+  iconSrc,
+  trailingIcon,
 }) => (
   <div style={{ padding: 10 }}>
-    <DesignButton size={size} color={color} disabled={disabled}>
-      {children}
-    </DesignButton>
+    <DesignButton
+      size={size}
+      color={color}
+      disabled={disabled}
+      label={label}
+      iconSrc={iconSrc}
+      trailingIcon={trailingIcon}
+    />
   </div>
 );
 
 export const Default = Template.bind({});
 Default.args = {
+  label: "Button CTA",
   size: ButtonSize.md,
   color: ButtonColor.primary,
-  children: "Button CTA",
   disabled: false,
+  iconSrc: "",
+  trailingIcon: false,
 };
 Default.parameters = {
   viewMode: "docs",

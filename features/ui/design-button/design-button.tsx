@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import styles from "./design-button.module.scss";
+import Image from "next/image";
 
 export enum ButtonSize {
   sm = "sm",
@@ -19,24 +20,39 @@ export enum ButtonColor {
 }
 
 type ButtonProps = {
-  children: React.ReactNode;
+  label: string;
   size?: ButtonSize;
   color?: ButtonColor;
   disabled?: boolean;
+  iconSrc?: string;
+  trailingIcon?: boolean;
 };
 
 export function DesignButton({
-  children,
+  label,
   size = ButtonSize.md,
   color = ButtonColor.primary,
   disabled = false,
+  iconSrc,
+  trailingIcon = false,
 }: ButtonProps) {
   return (
     <button
-      className={classNames(styles.button, styles[size], styles[color])}
+      className={classNames(
+        styles.button,
+        styles[size],
+        styles[color],
+        iconSrc && label == "" ? styles.iconOnly : "",
+      )}
       disabled={disabled}
     >
-      {children}
+      {iconSrc && !trailingIcon && (
+        <Image src={iconSrc} alt={"Icon"} width={20} height={20} />
+      )}
+      {label && label}
+      {iconSrc && trailingIcon && (
+        <Image src={iconSrc} alt={"Icon"} width={20} height={20} />
+      )}
     </button>
   );
 }
